@@ -1,0 +1,1 @@
+import{d as a,H as e,o as s,i as t,c as n,w as r,r as l,a as u,b as o,e as i}from"./index-Bly4hIk5.js";const c=a({__name:"index",setup(a){const c=e();return s(()=>{t()?c.replaceAll({name:"merchantProfile"}):c.pushTab({name:"activity"})}),(a,e)=>{const s=i,t=l("layout-default-uni");return u(),n(t,null,{default:r(()=>[o(s)]),_:1})}}});export{c as default};
