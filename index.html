@@ -1,335 +1,548 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H5定位功能解决方案</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H5定位功能解决方案 - 增强版</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      .status-card {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .status-icon {
+        font-size: 48px;
+        margin-bottom: 15px;
+      }
+
+      .status-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .status-description {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .location-info {
+        text-align: left;
+        background: #e8f4fd;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 20px 0;
+        display: none;
+      }
+
+      .location-info h3 {
+        color: #1976d2;
+        margin-bottom: 10px;
+      }
+
+      .location-info p {
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .error-info {
+        text-align: left;
+        background: #ffebee;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 20px 0;
+        display: none;
+      }
+
+      .error-info h3 {
+        color: #d32f2f;
+        margin-bottom: 10px;
+      }
+
+      .error-info p {
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .action-btn {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 14px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
+      }
+
+      .action-btn:active {
+        transform: translateY(0);
+      }
+
+      .action-btn:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .retry-btn {
+        background: #ff9800;
+        margin-top: 5px;
+      }
+
+      .tips {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        text-align: left;
+      }
+
+      .tips h3 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .tips ul {
+        padding-left: 20px;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .tips li {
+        margin-bottom: 8px;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
-        
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .status-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .status-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-        
-        .status-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .status-description {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        .location-info {
-            text-align: left;
-            background: #e8f4fd;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .location-info h3 {
-            color: #1976d2;
-            margin-bottom: 10px;
-        }
-        
-        .location-info p {
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .error-info {
-            text-align: left;
-            background: #ffebee;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            display: none;
-        }
-        
-        .error-info h3 {
-            color: #d32f2f;
-            margin-bottom: 10px;
-        }
-        
-        .error-info p {
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .action-btn {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 14px 30px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
-            width: 100%;
-            margin-top: 10px;
-        }
-        
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 117, 252, 0.6);
-        }
-        
-        .action-btn:active {
-            transform: translateY(0);
-        }
-        
-        .action-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .tips {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            text-align: left;
-        }
-        
-        .tips h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        
-        .tips ul {
-            padding-left: 20px;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .tips li {
-            margin-bottom: 8px;
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .hidden {
-            display: none;
-        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .browser-info {
+        background: #e8f5e9;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px 0;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      .browser-info h3 {
+        color: #2e7d32;
+        margin-bottom: 8px;
+      }
+
+      .debug-info {
+        background: #f3e5f5;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px 0;
+        text-align: left;
+        font-size: 14px;
+        display: none;
+      }
+
+      .debug-info h3 {
+        color: #7b1fa2;
+        margin-bottom: 8px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>位置信息服务</h1>
-        <p class="description">获取您当前的位置信息，为您提供更好的服务体验</p>
-        
-        <div class="status-card" id="statusCard">
-            <div class="status-icon">📍</div>
-            <h2 class="status-title" id="statusTitle">准备获取位置信息</h2>
-            <p class="status-description" id="statusDescription">点击下方按钮开始获取您的位置信息</p>
-        </div>
-        
-        <div class="location-info" id="locationInfo">
-            <h3>位置信息</h3>
-            <p><strong>纬度:</strong> <span id="latitude">-</span></p>
-            <p><strong>经度:</strong> <span id="longitude">-</span></p>
-            <p><strong>精度:</strong> <span id="accuracy">-</span> 米</p>
-            <p><strong>更新时间:</strong> <span id="timestamp">-</span></p>
-        </div>
-        
-        <div class="error-info" id="errorInfo">
-            <h3>获取位置失败</h3>
-            <p id="errorMessage">未知错误</p>
-        </div>
-        
-        <button class="action-btn" id="getLocationBtn">
-            获取我的位置
-        </button>
-        
-        <div class="tips">
-            <h3>定位问题排查提示：</h3>
-            <ul>
-                <li>确保您已授权此网站获取位置信息</li>
-                <li>检查设备定位功能是否已开启</li>
-                <li>尝试在室外或信号较好的地方使用</li>
-                <li>某些浏览器需要HTTPS协议才能使用定位功能</li>
-                <li>如果使用VPN，请尝试关闭后重试</li>
-            </ul>
-        </div>
+      <h1>位置信息服务 - 增强版</h1>
+      <p class="description">获取您当前的位置信息，为您提供更好的服务体验</p>
+
+      <div class="browser-info">
+        <h3>浏览器信息</h3>
+        <p id="browserDetails">正在检测浏览器信息...</p>
+      </div>
+
+      <div class="status-card" id="statusCard">
+        <div class="status-icon">📍</div>
+        <h2 class="status-title" id="statusTitle">准备获取位置信息</h2>
+        <p class="status-description" id="statusDescription">
+          点击下方按钮开始获取您的位置信息
+        </p>
+      </div>
+
+      <div class="location-info" id="locationInfo">
+        <h3>位置信息</h3>
+        <p><strong>纬度:</strong> <span id="latitude">-</span></p>
+        <p><strong>经度:</strong> <span id="longitude">-</span></p>
+        <p><strong>精度:</strong> <span id="accuracy">-</span> 米</p>
+        <p><strong>更新时间:</strong> <span id="timestamp">-</span></p>
+      </div>
+
+      <div class="error-info" id="errorInfo">
+        <h3>获取位置失败</h3>
+        <p id="errorMessage">未知错误</p>
+      </div>
+
+      <div class="debug-info" id="debugInfo">
+        <h3>调试信息</h3>
+        <p id="debugDetails"></p>
+      </div>
+
+      <button class="action-btn" id="getLocationBtn">获取我的位置</button>
+
+      <button class="action-btn retry-btn" id="retryBtn" style="display: none">
+        重新尝试定位
+      </button>
+
+      <div class="tips">
+        <h3>定位问题排查提示：</h3>
+        <ul>
+          <li>确保您已授权此网站获取位置信息</li>
+          <li>检查设备定位功能是否已开启</li>
+          <li>尝试在室外或信号较好的地方使用</li>
+          <li>某些浏览器需要HTTPS协议才能使用定位功能</li>
+          <li>如果使用VPN，请尝试关闭后重试</li>
+          <li>尝试清除浏览器缓存和位置权限后重新授权</li>
+          <li>某些浏览器在隐私模式下可能限制定位功能</li>
+        </ul>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const statusCard = document.getElementById('statusCard');
-            const statusTitle = document.getElementById('statusTitle');
-            const statusDescription = document.getElementById('statusDescription');
-            const locationInfo = document.getElementById('locationInfo');
-            const errorInfo = document.getElementById('errorInfo');
-            const getLocationBtn = document.getElementById('getLocationBtn');
-            const latitude = document.getElementById('latitude');
-            const longitude = document.getElementById('longitude');
-            const accuracy = document.getElementById('accuracy');
-            const timestamp = document.getElementById('timestamp');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // 检查浏览器是否支持地理位置API
-            if (!navigator.geolocation) {
-                showError("您的浏览器不支持地理位置服务");
-                getLocationBtn.disabled = true;
-                return;
-            }
-            
-            getLocationBtn.addEventListener('click', getLocation);
-            
-            function getLocation() {
-                // 更新状态
-                updateStatus("正在获取位置...", "请稍候，系统正在尝试获取您的位置信息", "#fff3cd", "🔄");
-                getLocationBtn.disabled = true;
-                getLocationBtn.innerHTML = '<span class="spinner"></span>获取中...';
-                
-                // 隐藏之前的结果
-                locationInfo.style.display = 'none';
-                errorInfo.style.display = 'none';
-                
-                // 获取位置信息
-                navigator.geolocation.getCurrentPosition(
-                    // 成功回调
-                    function(position) {
-                        const lat = position.coords.latitude;
-                        const lng = position.coords.longitude;
-                        const acc = position.coords.accuracy;
-                        const time = new Date(position.timestamp).toLocaleString();
-                        
-                        // 更新界面显示位置信息
-                        latitude.textContent = lat.toFixed(6);
-                        longitude.textContent = lng.toFixed(6);
-                        accuracy.textContent = Math.round(acc);
-                        timestamp.textContent = time;
-                        
-                        // 显示位置信息
-                        locationInfo.style.display = 'block';
-                        
-                        // 更新状态
-                        updateStatus("位置获取成功", "已成功获取您的位置信息", "#d4edda", "✅");
-                        
-                        // 恢复按钮状态
-                        getLocationBtn.disabled = false;
-                        getLocationBtn.textContent = '重新获取位置';
-                    },
-                    // 错误回调
-                    function(error) {
-                        let message = "";
-                        
-                        switch(error.code) {
-                            case error.PERMISSION_DENIED:
-                                message = "位置请求被拒绝。请检查浏览器设置并允许位置访问权限。";
-                                break;
-                            case error.POSITION_UNAVAILABLE:
-                                message = "位置信息不可用。请检查您的设备定位功能是否已开启。";
-                                break;
-                            case error.TIMEOUT:
-                                message = "获取位置超时。请重试或检查网络连接。";
-                                break;
-                            default:
-                                message = "发生未知错误，无法获取位置信息。";
-                                break;
-                        }
-                        
-                        // 显示错误信息
-                        showError(message);
-                        
-                        // 恢复按钮状态
-                        getLocationBtn.disabled = false;
-                        getLocationBtn.textContent = '重新获取位置';
-                    },
-                    // 选项
-                    {
-                        enableHighAccuracy: true,
-                        timeout: 10000,
-                        maximumAge: 60000
-                    }
+      document.addEventListener("DOMContentLoaded", function () {
+        const statusCard = document.getElementById("statusCard");
+        const statusTitle = document.getElementById("statusTitle");
+        const statusDescription = document.getElementById("statusDescription");
+        const locationInfo = document.getElementById("locationInfo");
+        const errorInfo = document.getElementById("errorInfo");
+        const debugInfo = document.getElementById("debugInfo");
+        const getLocationBtn = document.getElementById("getLocationBtn");
+        const retryBtn = document.getElementById("retryBtn");
+        const latitude = document.getElementById("latitude");
+        const longitude = document.getElementById("longitude");
+        const accuracy = document.getElementById("accuracy");
+        const timestamp = document.getElementById("timestamp");
+        const errorMessage = document.getElementById("errorMessage");
+        const debugDetails = document.getElementById("debugDetails");
+        const browserDetails = document.getElementById("browserDetails");
+
+        let retryCount = 0;
+        const maxRetries = 2;
+        let currentWatchId = null;
+
+        // 显示浏览器信息
+        displayBrowserInfo();
+
+        // 检查浏览器是否支持地理位置API
+        if (!navigator.geolocation) {
+          showError("您的浏览器不支持地理位置服务");
+          getLocationBtn.disabled = true;
+          return;
+        }
+
+        getLocationBtn.addEventListener("click", startLocationProcess);
+        retryBtn.addEventListener("click", startLocationProcess);
+
+        function startLocationProcess() {
+          retryCount = 0;
+          getLocationWithRetry();
+        }
+
+        function getLocationWithRetry() {
+          // 更新状态
+          updateStatus(
+            "正在获取位置...",
+            `请稍候，系统正在尝试获取您的位置信息${
+              retryCount > 0 ? ` (第${retryCount + 1}次尝试)` : ""
+            }`,
+            "#fff3cd",
+            "🔄"
+          );
+          getLocationBtn.disabled = true;
+          retryBtn.style.display = "none";
+          getLocationBtn.innerHTML = '<span class="spinner"></span>获取中...';
+
+          // 隐藏之前的结果
+          locationInfo.style.display = "none";
+          errorInfo.style.display = "none";
+          debugInfo.style.display = "none";
+
+          // 停止之前的监听
+          if (currentWatchId !== null) {
+            navigator.geolocation.clearWatch(currentWatchId);
+            currentWatchId = null;
+          }
+
+          // 获取位置信息 - 使用watchPosition而不是getCurrentPosition
+          // 这样可以更好地处理超时和提供更实时的反馈
+          const options = {
+            enableHighAccuracy: true,
+            timeout: 15000, // 增加到15秒
+            maximumAge: 0, // 不使用缓存位置
+          };
+
+          currentWatchId = navigator.geolocation.watchPosition(
+            // 成功回调
+            function (position) {
+              // 清除监听
+              if (currentWatchId !== null) {
+                navigator.geolocation.clearWatch(currentWatchId);
+                currentWatchId = null;
+              }
+
+              const lat = position.coords.latitude;
+              const lng = position.coords.longitude;
+              const acc = position.coords.accuracy;
+              const time = new Date(position.timestamp).toLocaleString();
+
+              // 更新界面显示位置信息
+              latitude.textContent = lat.toFixed(6);
+              longitude.textContent = lng.toFixed(6);
+              accuracy.textContent = Math.round(acc);
+              timestamp.textContent = time;
+
+              // 显示位置信息
+              locationInfo.style.display = "block";
+
+              // 更新状态
+              updateStatus(
+                "位置获取成功",
+                "已成功获取您的位置信息",
+                "#d4edda",
+                "✅"
+              );
+
+              // 恢复按钮状态
+              getLocationBtn.disabled = false;
+              getLocationBtn.textContent = "重新获取位置";
+              retryBtn.style.display = "none";
+
+              // 显示调试信息
+              showDebugInfo(
+                `定位成功 - 精度: ${Math.round(
+                  acc
+                )}米, 方法: ${getPositionMethod(position)}`
+              );
+            },
+            // 错误回调
+            function (error) {
+              // 清除监听
+              if (currentWatchId !== null) {
+                navigator.geolocation.clearWatch(currentWatchId);
+                currentWatchId = null;
+              }
+
+              let message = "";
+              let debugMsg = "";
+
+              switch (error.code) {
+                case error.PERMISSION_DENIED:
+                  message =
+                    "位置请求被拒绝。请检查浏览器设置并允许位置访问权限。";
+                  debugMsg = "权限被拒绝 - 用户拒绝了位置访问请求";
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                  message =
+                    "位置信息不可用。请检查您的设备定位功能是否已开启。";
+                  debugMsg = "位置不可用 - 设备定位服务可能已关闭";
+                  break;
+                case error.TIMEOUT:
+                  debugMsg = `定位超时 - 尝试${retryCount + 1}次后仍超时`;
+                  if (retryCount < maxRetries) {
+                    // 重试
+                    retryCount++;
+                    setTimeout(getLocationWithRetry, 1000);
+                    updateStatus(
+                      "正在重试...",
+                      `第${retryCount + 1}次尝试获取位置`,
+                      "#ffeaa7",
+                      "🔄"
+                    );
+                    return;
+                  } else {
+                    message =
+                      "获取位置超时。这可能是因为：1) GPS信号弱 2) 网络连接问题 3) 浏览器定位服务响应慢。请尝试在开阔地带使用或更换浏览器。";
+                  }
+                  break;
+                default:
+                  message = "发生未知错误，无法获取位置信息。";
+                  debugMsg = `未知错误 - 错误代码: ${error.code}`;
+                  break;
+              }
+
+              // 显示错误信息
+              showError(message);
+              showDebugInfo(debugMsg);
+
+              // 恢复按钮状态
+              getLocationBtn.disabled = false;
+              getLocationBtn.textContent = "重新获取位置";
+              retryBtn.style.display = "block";
+            },
+            options
+          );
+
+          // 设置备用超时 - 防止watchPosition不触发超时错误
+          setTimeout(() => {
+            if (currentWatchId !== null) {
+              navigator.geolocation.clearWatch(currentWatchId);
+              currentWatchId = null;
+
+              if (retryCount < maxRetries) {
+                retryCount++;
+                setTimeout(getLocationWithRetry, 1000);
+                updateStatus(
+                  "正在重试...",
+                  `第${retryCount + 1}次尝试获取位置`,
+                  "#ffeaa7",
+                  "🔄"
                 );
+              } else {
+                showError(
+                  "获取位置超时。这可能是因为：1) GPS信号弱 2) 网络连接问题 3) 浏览器定位服务响应慢。请尝试在开阔地带使用或更换浏览器。"
+                );
+                showDebugInfo(`备用超时触发 - 尝试${retryCount}次后仍无响应`);
+
+                getLocationBtn.disabled = false;
+                getLocationBtn.textContent = "重新获取位置";
+                retryBtn.style.display = "block";
+              }
             }
-            
-            function updateStatus(title, description, backgroundColor, icon) {
-                statusTitle.textContent = title;
-                statusDescription.textContent = description;
-                statusCard.style.backgroundColor = backgroundColor;
-                
-                const statusIcon = statusCard.querySelector('.status-icon');
-                statusIcon.textContent = icon;
-            }
-            
-            function showError(message) {
-                errorMessage.textContent = message;
-                errorInfo.style.display = 'block';
-                updateStatus("获取位置失败", "无法获取您的位置信息，请查看下方错误详情", "#f8d7da", "❌");
-            }
-        });
+          }, 16000); // 比watchPosition的超时时间稍长
+        }
+
+        function getPositionMethod(position) {
+          // 尝试检测定位方法 (非标准属性，部分浏览器支持)
+          if (position.coords.altitude !== null) {
+            return "可能使用GPS";
+          } else if (position.coords.accuracy > 1000) {
+            return "IP定位";
+          } else {
+            return "网络定位(WiFi/基站)";
+          }
+        }
+
+        function displayBrowserInfo() {
+          const ua = navigator.userAgent;
+          let browserName = "未知浏览器";
+
+          if (ua.includes("Chrome") && !ua.includes("Edg")) {
+            browserName = "Google Chrome";
+          } else if (ua.includes("Firefox")) {
+            browserName = "Mozilla Firefox";
+          } else if (ua.includes("Safari") && !ua.includes("Chrome")) {
+            browserName = "Apple Safari";
+          } else if (ua.includes("Edg")) {
+            browserName = "Microsoft Edge";
+          } else if (ua.includes("Trident") || ua.includes("MSIE")) {
+            browserName = "Internet Explorer";
+          }
+
+          browserDetails.innerHTML = `
+                    <strong>浏览器:</strong> ${browserName}<br>
+                    <strong>User Agent:</strong> ${ua.substring(0, 80)}${
+            ua.length > 80 ? "..." : ""
+          }<br>
+                    <strong>HTTPS:</strong> ${
+                      window.location.protocol === "https:" ? "是" : "否"
+                    }<br>
+                    <strong>定位API支持:</strong> ${
+                      navigator.geolocation ? "是" : "否"
+                    }
+                `;
+        }
+
+        function updateStatus(title, description, backgroundColor, icon) {
+          statusTitle.textContent = title;
+          statusDescription.textContent = description;
+          statusCard.style.backgroundColor = backgroundColor;
+
+          const statusIcon = statusCard.querySelector(".status-icon");
+          statusIcon.textContent = icon;
+        }
+
+        function showError(message) {
+          errorMessage.textContent = message;
+          errorInfo.style.display = "block";
+          updateStatus(
+            "获取位置失败",
+            "无法获取您的位置信息，请查看下方错误详情",
+            "#f8d7da",
+            "❌"
+          );
+        }
+
+        function showDebugInfo(info) {
+          debugDetails.textContent = info;
+          debugInfo.style.display = "block";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
