@@ -1,1 +1,0 @@
-import{d as s,c as e,a,e as t,w as n,y as o}from"./index-a6TtsOgc.js";const p=s({name:"AppVersion",__name:"AppVersion",setup:s=>(s,p)=>{const r=t;return a(),e(r,{class:"fixed bottom-0 left-0 hidden"},{default:n(()=>[o("[当前版本号] ~1.0.3~")]),_:1})}});export{p as _};
