@@ -1,0 +1,511 @@
+import { _ as t } from './BannerView.vue_vue_type_script_setup_true_lang.B49om_vb.js';
+import {
+  d as e,
+  c as s,
+  a,
+  e as r,
+  w as l,
+  b as i,
+  G as o,
+  E as n,
+  A as p,
+  t as u,
+  F as d,
+  y as f,
+  z as x,
+  _ as c,
+  H as m,
+  C as _,
+  r as h,
+  b6 as g,
+  N as b,
+  O as y,
+  Q as v,
+  P as k,
+} from './index-weTBPgUB.js';
+import { _ as w } from './GradientText.vue_vue_type_script_setup_true_lang.iBouy0Ie.js';
+import { _ as j } from './PyTitle.DruDsr5W.js';
+import { f as C } from './index.BwehUw5u.js';
+import { u as M, _ as P } from './usePaged.CD3wQfgj.js';
+import { b as S, _ as E, a as I } from './wd-tab.Cm6fFq1S.js';
+import './commonjsHelpers.lGe4XDVY.js';
+const N = c(
+    e({
+      name: 'NProfitListItem',
+      __name: 'NProfitListItem',
+      props: {
+        avatarSrc: { default: void 0 },
+        expireTime: { default: void 0 },
+        issuer: {},
+        pythrootList: { default: () => [] },
+        title: {},
+        status: {},
+        redemptionMethod: {},
+      },
+      emits: ['extraButtonClick'],
+      setup(t, { emit: e }) {
+        const c = e;
+        function m(t) {
+          t.stopPropagation(), c('extraButtonClick');
+        }
+        return (t, e) => {
+          const c = o,
+            _ = r,
+            h = j,
+            g = n,
+            b = w,
+            y = d;
+          return (
+            a(),
+            s(
+              _,
+              {
+                class: 'n-profit-list-item rounded-30rpx bg-#fff relative flex',
+              },
+              {
+                default: l(() => [
+                  i(
+                    _,
+                    {
+                      class:
+                        'w-248rpx h-248rpx rounded-tl-30rpx rounded-bl-30rpx flex-shrink-0 overflow-hidden',
+                    },
+                    {
+                      default: l(() => [
+                        i(
+                          c,
+                          {
+                            width: '100%',
+                            height: '100%',
+                            alt: '',
+                            mode: 'aspectFill',
+                            src: t.avatarSrc,
+                          },
+                          null,
+                          8,
+                          ['src']
+                        ),
+                      ]),
+                      _: 1,
+                    }
+                  ),
+                  i(
+                    _,
+                    { class: 'h-248rpx w-6rpx overflow-hidden' },
+                    {
+                      default: l(() => [i(_, { class: 'dashed-divider' })]),
+                      _: 1,
+                    }
+                  ),
+                  i(
+                    _,
+                    {
+                      class:
+                        'pt-16rpx pb-8rpx pl-28rpx pr-32rpx gap-4rpx h-248rpx flex flex-grow flex-col',
+                    },
+                    {
+                      default: l(() => [
+                        i(
+                          h,
+                          {
+                            'custom-class': '!font-600 mb-12rpx',
+                            text: t.title,
+                            size: '28rpx',
+                            'line-height': 'normal',
+                            bold: '',
+                          },
+                          null,
+                          8,
+                          ['text']
+                        ),
+                        i(
+                          _,
+                          { class: 'gap-2rpx pr-11rpx flex flex-col' },
+                          {
+                            default: l(() => [
+                              i(
+                                _,
+                                { class: 'gap-24rpx inline-flex' },
+                                {
+                                  default: l(() => [
+                                    i(g, {
+                                      'custom-class': 'flex-shrink-0',
+                                      text: '发行方: ',
+                                    }),
+                                    i(
+                                      _,
+                                      {
+                                        class:
+                                          'bg-#29a2fb26 rounded-24rpx px-18rpx max-w-236rpx flex items-center justify-center py-0',
+                                      },
+                                      {
+                                        default: l(() => [
+                                          i(
+                                            b,
+                                            {
+                                              'custom-class':
+                                                'font-500 text-24rpx leading-32rpx truncate min-w-2rpx',
+                                              from: '#29a2fb',
+                                              to: '#00bfa5',
+                                              text: t.issuer,
+                                            },
+                                            null,
+                                            8,
+                                            ['text']
+                                          ),
+                                        ]),
+                                        _: 1,
+                                      }
+                                    ),
+                                  ]),
+                                  _: 1,
+                                }
+                              ),
+                              i(
+                                _,
+                                { class: 'gap-24rpx inline-flex' },
+                                {
+                                  default: l(() => [
+                                    i(g, {
+                                      'custom-class': 'flex-shrink-0',
+                                      text: '关联数根: ',
+                                    }),
+                                    i(
+                                      g,
+                                      {
+                                        'custom-class': 'font-300',
+                                        lines: 1,
+                                        text:
+                                          t.pythrootList.length > 0
+                                            ? t.pythrootList.join(' ')
+                                            : '无',
+                                      },
+                                      null,
+                                      8,
+                                      ['text']
+                                    ),
+                                  ]),
+                                  _: 1,
+                                }
+                              ),
+                              i(
+                                _,
+                                { class: 'gap-24rpx inline-flex' },
+                                {
+                                  default: l(() => [
+                                    i(g, {
+                                      'custom-class': 'flex-shrink-0',
+                                      text: '到期时间: ',
+                                    }),
+                                    i(
+                                      g,
+                                      {
+                                        'custom-class': 'font-300',
+                                        lines: 1,
+                                        text: `${p(C)(
+                                          t.expireTime,
+                                          'YYYY年MM月DD日'
+                                        )}`,
+                                      },
+                                      null,
+                                      8,
+                                      ['text']
+                                    ),
+                                  ]),
+                                  _: 1,
+                                }
+                              ),
+                            ]),
+                            _: 1,
+                          }
+                        ),
+                        i(
+                          _,
+                          { class: 'mt-8rpx flex justify-end' },
+                          {
+                            default: l(() => [
+                              0 === t.status
+                                ? (a(),
+                                  s(
+                                    y,
+                                    { key: 0, onClick: m },
+                                    {
+                                      default: l(() => [
+                                        f(
+                                          x(
+                                            '2' === t.redemptionMethod
+                                              ? '去激活'
+                                              : '去使用'
+                                          ),
+                                          1
+                                        ),
+                                      ]),
+                                      _: 1,
+                                    }
+                                  ))
+                                : u('', !0),
+                              30 === t.status
+                                ? (a(),
+                                  s(
+                                    y,
+                                    { key: 1, plain: '', disabled: '' },
+                                    {
+                                      default: l(() => [
+                                        f(
+                                          x(
+                                            '2' === t.redemptionMethod
+                                              ? '已激活'
+                                              : '已核销'
+                                          ),
+                                          1
+                                        ),
+                                      ]),
+                                      _: 1,
+                                    }
+                                  ))
+                                : u('', !0),
+                            ]),
+                            _: 1,
+                          }
+                        ),
+                      ]),
+                      _: 1,
+                    }
+                  ),
+                  i(_, {
+                    class:
+                      'round-mask bg-#f5f5f5 w-86rpx h-86rpx absolute right-0 top-1/2 translate-x-1/2 translate-y--1/2 rounded-full',
+                  }),
+                ]),
+                _: 1,
+              }
+            )
+          );
+        };
+      },
+    }),
+    [['__scopeId', 'data-v-0e36904c']]
+  ),
+  B = e({
+    __name: 'index',
+    setup(e) {
+      const o = m(),
+        n = _('all'),
+        d = [{ key: 'all', title: '全部' }],
+        f = _(new Map());
+      const { list: x } = M(async function (t) {
+        f.value.clear();
+        const e = await k.app.getOrderPage({ params: { type: 2, ...t } }),
+          { code: s, data: a } = e || {};
+        if (0 !== s || !a) throw new Error('获取数据失败');
+        const { list: r } = a;
+        return (
+          (r || []).forEach((t) => {
+            const e = [];
+            Array.isArray(t.productsIssue) &&
+              t.productsIssue.forEach((t) => {
+                e.push(t.name);
+              }),
+              void 0 !== t.id && f.value.set(t.id, e);
+          }),
+          a
+        );
+      });
+      return (e, c) => {
+        const m = I,
+          _ = E,
+          k = r,
+          w = S,
+          j = P,
+          C = N,
+          M = t,
+          B = h('layout-tabbar-uni');
+        return (
+          a(),
+          s(B, null, {
+            default: l(() => [
+              i(
+                M,
+                {
+                  'custom-class': 'pb-228rpx bg-#f5f5f5',
+                  'banner-height': '332rpx',
+                  'banner-src': p('/assets/profit-banner-so3idplw.png'),
+                },
+                {
+                  default: l(() => [
+                    i(
+                      k,
+                      {
+                        class:
+                          'p-28rpx bg-#f5f5f5 mt-[-30rpx] rounded-t-2xl pt-0',
+                      },
+                      {
+                        default: l(() => [
+                          i(
+                            w,
+                            { 'offset-top': -44 },
+                            {
+                              default: l(() => [
+                                i(
+                                  k,
+                                  { class: 'mb-16rpx w-690rpx bg-#f5f5f5' },
+                                  {
+                                    default: l(() => [
+                                      i(
+                                        k,
+                                        {
+                                          class:
+                                            'px-20rpx bg-#f5f5f5 inline-flex',
+                                        },
+                                        {
+                                          default: l(() => [
+                                            i(
+                                              _,
+                                              {
+                                                modelValue: p(n),
+                                                'onUpdate:modelValue':
+                                                  c[0] ||
+                                                  (c[0] = (t) =>
+                                                    g(n)
+                                                      ? (n.value = t)
+                                                      : null),
+                                              },
+                                              {
+                                                default: l(() => [
+                                                  (a(),
+                                                  b(
+                                                    y,
+                                                    null,
+                                                    v(d, (t) =>
+                                                      i(
+                                                        m,
+                                                        {
+                                                          key: t.key,
+                                                          title: `${t.title}`,
+                                                          name: t.key,
+                                                        },
+                                                        null,
+                                                        8,
+                                                        ['title', 'name']
+                                                      )
+                                                    ),
+                                                    64
+                                                  )),
+                                                ]),
+                                                _: 1,
+                                              },
+                                              8,
+                                              ['modelValue']
+                                            ),
+                                          ]),
+                                          _: 1,
+                                        }
+                                      ),
+                                    ]),
+                                    _: 1,
+                                  }
+                                ),
+                              ]),
+                              _: 1,
+                            }
+                          ),
+                          i(
+                            k,
+                            { class: 'gap-36rpx px-8rpx flex flex-col' },
+                            {
+                              default: l(() => [
+                                0 === p(x).length
+                                  ? (a(),
+                                    s(
+                                      k,
+                                      { key: 0 },
+                                      { default: l(() => [i(j)]), _: 1 }
+                                    ))
+                                  : u('', !0),
+                                (a(!0),
+                                b(
+                                  y,
+                                  null,
+                                  v(
+                                    p(x),
+                                    (t, e) => (
+                                      a(),
+                                      s(
+                                        C,
+                                        {
+                                          color: 'orange',
+                                          key: e,
+                                          status: t.status,
+                                          'redemption-method':
+                                            t.redemptionMethod,
+                                          'avatar-src': t.productSpuPicUrl,
+                                          title: t.productSpuName,
+                                          issuer: t.issuerName,
+                                          'pythroot-list': p(f).get(t.id) || [],
+                                          'expire-time': t.expireTime,
+                                          onClick: (e) => {
+                                            return (
+                                              (s = t.id),
+                                              void o.push({
+                                                name: 'profitDetail',
+                                                params: { id: String(s) },
+                                              })
+                                            );
+                                            var s;
+                                          },
+                                          onExtraButtonClick: (e) => {
+                                            return (
+                                              (s = t.id),
+                                              void ('2' === t.redemptionMethod
+                                                ? o.push({
+                                                    name: 'profitDetail',
+                                                    params: { id: String(s) },
+                                                  })
+                                                : o.push({
+                                                    name: 'profitQRCode',
+                                                    params: { id: String(s) },
+                                                  }))
+                                            );
+                                            var s;
+                                          },
+                                        },
+                                        null,
+                                        8,
+                                        [
+                                          'status',
+                                          'redemption-method',
+                                          'avatar-src',
+                                          'title',
+                                          'issuer',
+                                          'pythroot-list',
+                                          'expire-time',
+                                          'onClick',
+                                          'onExtraButtonClick',
+                                        ]
+                                      )
+                                    )
+                                  ),
+                                  128
+                                )),
+                              ]),
+                              _: 1,
+                            }
+                          ),
+                        ]),
+                        _: 1,
+                      }
+                    ),
+                  ]),
+                  _: 1,
+                },
+                8,
+                ['banner-src']
+              ),
+            ]),
+            _: 1,
+          })
+        );
+      };
+    },
+  });
+export { B as default };
