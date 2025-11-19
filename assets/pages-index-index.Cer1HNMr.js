@@ -1,1 +1,0 @@
-import{d as a,H as e,o as s,i as t,c as l,w as n,r,a as o,b as u,e as c}from"./index-2e8oLCEa.js";const i=a({__name:"index",setup(a){const i=e();return s(()=>{t()?i.replaceAll({name:"merchantProfile"}):i.replaceAll({name:"activity"})}),(a,e)=>{const s=c,t=r("layout-default-uni");return o(),l(t,null,{default:n(()=>[u(s)]),_:1})}}});export{i as default};
