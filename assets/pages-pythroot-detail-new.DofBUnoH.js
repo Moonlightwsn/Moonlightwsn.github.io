@@ -1,1 +1,660 @@
-import{d as e,B as l,H as r,b3 as a,C as s,p as u,c as t,w as o,r as i,P as p,D as c,a as n,b as d,e as x,t as v,A as m,F as f,y as b,G as h,N as A,E as w,O as g,Q as S,n as K,_ as y}from"./index-DLEqDFWl.js";import{_ as N}from"./BannerView.vue_vue_type_script_setup_true_lang.C9IVHeQj.js";import{_ as Z,a as F}from"./HtmlCard.vue_vue_type_script_setup_true_lang.Xzk1ycfw.js";import{_ as j,P as D}from"./profit-detail-card-bg.DM_Bi4xb.js";import{_ as V}from"./PyTitle.DbeyPiIU.js";import{_ as Y}from"./Avatar.vue_vue_type_script_setup_true_lang.C-tG9hQO.js";import{G as k}from"./gift.CnwWG0IK.js";import{o as C}from"./on-chain.ItkuIJXP.js";import{u as E}from"./usePageOptions.zFe1iZJE.js";import{f as P}from"./index.BwehUw5u.js";import"./_commonjsHelpers.lGe4XDVY.js";const H="data:image/png;base64,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",J=y(e({__name:"detail-new",setup(e){const{confirm:y}=l(),J=r(),{verifyStatus:X}=a(),q=s(null),L=s(),T=s(),G=s(),U=s(),W=e=>{if(!e)return"0";const l=Number(e);return Number.isNaN(l)?String(e):l.toLocaleString("zh-CN")};function z(){0!==X.value?J.push({name:"evidence",params:{type:"1",id:String(L.value)}}):y({title:"数字身份保护说明",msg:"您还未领取数字身份，您的数根无法进行上链保护，请尽快领取数字身份哦~",cancelButtonText:"放弃",confirmButtonText:"领取数字身份",success(){J.push({name:"digitalIdCard"})}})}E(async e=>{const{id:l,pId:r,type:a}=e||{};if(L.value=Number(l),T.value=Number(r),"product"===a){q.value="product";const e=await p.appSpu.getSpuDetail({params:{id:T.value}});(null==e?void 0:e.data)&&(U.value=e.data)}else{q.value="order";const e=await p.app.getOrderDetail({params:{orderId:L.value}});(null==e?void 0:e.data)&&(G.value=e.data)}G.value||U.value||(G.value=void 0,U.value=void 0,c({icon:"error",title:"没有获取到数根详情"}))});const B=u(()=>{var e,l,r,a,s,u,t;return q.value?"product"===q.value?{productSpuNo:null==(e=U.value)?void 0:e.productNo,productSpuCategoryName:null==(l=U.value)?void 0:l.categoryName,productSpuName:null==(r=U.value)?void 0:r.name,productSpuPicUrl:null==(a=U.value)?void 0:a.picUrl,productSpuIssuedQuantity:null==(s=U.value)?void 0:s.issuedQuantity,issuerName:null==(u=U.value)?void 0:u.issuerName,productSpuDescription:null==(t=U.value)?void 0:t.description,createTime:void 0,chainStatus:void 0,voucherIssue:[]}:G.value:null}),I=u(()=>{var e;return window&&window.self===window.top&&(0===X.value||1===X.value&&1===(null==(e=B.value)?void 0:e.chainStatus))});return(e,l)=>{const r=h,a=x,s=Y,u=V,p=j,c=f,y=Z,E=w,X=F,L=N,T=i("layout-default-uni");return n(),t(T,null,{default:o(()=>[d(L,{"custom-class":"h-screen bg-#f5f5f5 pb-32rpx","banner-height":"434rpx",fixed:!1},{"banner-front":o(()=>{var e;return[d(r,{"custom-class":"!absolute rounded-b-96rpx overflow-hidden",width:"811rpx",height:"434rpx",src:m("/assets/pythroot-detail-banner-188-PmNB.png"),mode:"aspectFill"},null,8,["src"]),d(a,{class:"w-635rpx flex justify-between"},{default:o(()=>[d(r,{src:m(H),width:"416rpx",height:"131rpx"},null,8,["src"]),d(r,{src:m(H),width:"416rpx",height:"131rpx"},null,8,["src"])]),_:1}),d(s,{"custom-class":"!absolute bg-#fff",src:(null==(e=m(B))?void 0:e.productSpuPicUrl)||"",size:"360rpx",border:"","border-size":"6rpx"},null,8,["src"])]}),default:o(()=>[d(a,{class:"pythroot-detail-content px-36rpx mt-[-108rpx]"},{default:o(()=>{var e;return[d(a,{class:"rounded-20rpx bg-#fff shadow-[0rpx_4rpx_8rpx_0rpx_rgba(203,203,203,0.25)]"},{default:o(()=>[d(a,{class:"h-108rpx"}),d(a,{class:"pt-18rpx pb-28rpx px-40rpx flex w-full flex-col"},{default:o(()=>{var e;return[d(u,{"custom-class":"!font-600",color:"#37445D","line-height":"normal",size:"34rpx",text:null==(e=m(B))?void 0:e.productSpuName},null,8,["text"]),d(a,{class:"my-18rpx bg-#E2E2E2 h-2rpx w-full scale-y-50"}),d(a,{class:"gap-16rpx flex flex-col"},{default:o(()=>{var e,l,r,a,s;return[d(p,{label:"数根编号：",value:null==(e=m(B))?void 0:e.productSpuNo},null,8,["value"]),d(p,{label:"分类：",value:null==(l=m(B))?void 0:l.productSpuCategoryName},null,8,["value"]),d(p,{label:"已发放：",value:W(null==(r=m(B))?void 0:r.productSpuIssuedQuantity)},null,8,["value"]),d(p,{label:"发放方：",value:null==(a=m(B))?void 0:a.issuerName},null,8,["value"]),"order"===m(q)?(n(),t(p,{key:0,label:"发放时间：",value:m(P)(null==(s=m(B))?void 0:s.createTime,"YYYY年MM月DD日 HH时mm分")},null,8,["value"])):v("",!0)]}),_:1}),m(I)?(n(),t(c,{key:0,class:"mt-20rpx",block:"",plain:"",onClick:z},{default:o(()=>[d(r,{class:"mr-10rpx",width:"24rpx",height:"24rpx",src:m(C)},null,8,["src"]),b("链上信息 ")]),_:1})):v("",!0)]}),_:1})]),_:1}),"order"===m(q)?(n(),t(a,{key:0,class:"mt-38rpx"},{default:o(()=>{var e,l;return[d(a,{class:"gap-8rpx mb-38rpx flex items-center"},{default:o(()=>[d(y,{src:m(k),width:"36rpx",height:"36rpx"},null,8,["src"]),d(u,{text:"关联权益",color:"#37445D",size:"27rpx"})]),_:1}),((null==(e=m(B))?void 0:e.voucherIssue)||[]).length<=0?(n(),t(a,{key:0,class:"mb-38rpx flex justify-center"},{default:o(()=>[d(E,{text:"无关联权益"})]),_:1})):(n(!0),A(g,{key:1},S((null==(l=m(B))?void 0:l.voucherIssue)||[],e=>(n(),t(a,{key:e.id,class:"mb-8rpx flex flex-nowrap",onClick:l=>{var r;(r=e.productId)&&J.push({name:"profitDetail",params:{pId:String(r),type:"product"}})}},{default:o(()=>[d(a,{class:"h-174rpx pt-20rpx pb-30rpx pl-40rpx pr-60rpx flex flex-grow",style:K({backgroundImage:`url(${m(D)})`,backgroundSize:"100% 100%"})},{default:o(()=>[e.picUrl?(n(),t(s,{key:0,"custom-class":"bg-#ffcaa5 flex-shrink-0","border-color":"#FF8B38","border-size":"2rpx",border:"",size:"124rpx",src:e.picUrl},null,8,["src"])):v("",!0),d(a,{class:"border-2rpx border-#E3E3E3 mx-32rpx scale-x-1/2 h-full w-0 flex-shrink-0 border-dashed"}),d(a,{class:"gap-4rpx flex h-full flex-grow flex-col"},{default:o(()=>[d(u,{"custom-class":"mb-4rpx",text:e.name,color:"#5D4037",size:"27rpx"},null,8,["text"]),d(p,{"label-class":"!font-normal",label:"发行方：","label-size":"24rpx","label-color":"#5D4037","value-class":"!font-200",value:e.issuerName,"value-lines":1},null,8,["value"]),d(p,{"label-class":"!font-normal",label:"发行量：","label-size":"24rpx","label-color":"#5D4037","value-class":"!font-200",value:String(e.issuedQuantity),"value-lines":1},null,8,["value"])]),_:2},1024)]),_:2},1032,["style"])]),_:2},1032,["onClick"]))),128))]}),_:1})):v("",!0),d(X,{"custom-class":"mx-8rpx mt-32rpx",title:"详细介绍","dompurify-html":(null==(e=m(B))?void 0:e.productSpuDescription)||"<p>暂无详细介绍</p>"},null,8,["dompurify-html"])]}),_:1})]),_:1})]),_:1})}}}),[["__scopeId","data-v-7010d501"]]);export{J as default};
+import {
+  d as e,
+  B as l,
+  H as r,
+  b3 as a,
+  C as s,
+  p as u,
+  c as t,
+  w as o,
+  r as i,
+  P as p,
+  D as c,
+  a as n,
+  b as d,
+  e as x,
+  t as v,
+  A as m,
+  F as f,
+  y as b,
+  G as h,
+  N as A,
+  E as w,
+  O as g,
+  Q as S,
+  n as K,
+  _ as y,
+} from './index-DLEqDFWl.js';
+import { _ as N } from './BannerView.vue_vue_type_script_setup_true_lang.C9IVHeQj.js';
+import {
+  _ as Z,
+  a as F,
+} from './HtmlCard.vue_vue_type_script_setup_true_lang.Xzk1ycfw.js';
+import { _ as j, P as D } from './profit-detail-card-bg.DM_Bi4xb.js';
+import { _ as V } from './PyTitle.DbeyPiIU.js';
+import { _ as Y } from './Avatar.vue_vue_type_script_setup_true_lang.C-tG9hQO.js';
+import { G as k } from './gift.CnwWG0IK.js';
+import { o as C } from './on-chain.ItkuIJXP.js';
+import { u as E } from './usePageOptions.zFe1iZJE.js';
+import { f as P } from './index.BwehUw5u.js';
+import './commonjsHelpers.lGe4XDVY.js';
+const H =
+    'data:image/png;base64,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',
+  J = y(
+    e({
+      __name: 'detail-new',
+      setup(e) {
+        const { confirm: y } = l(),
+          J = r(),
+          { verifyStatus: X } = a(),
+          q = s(null),
+          L = s(),
+          T = s(),
+          G = s(),
+          U = s(),
+          W = (e) => {
+            if (!e) return '0';
+            const l = Number(e);
+            return Number.isNaN(l) ? String(e) : l.toLocaleString('zh-CN');
+          };
+        function z() {
+          0 !== X.value
+            ? J.push({
+                name: 'evidence',
+                params: { type: '1', id: String(L.value) },
+              })
+            : y({
+                title: '数字身份保护说明',
+                msg: '您还未领取数字身份，您的数根无法进行上链保护，请尽快领取数字身份哦~',
+                cancelButtonText: '放弃',
+                confirmButtonText: '领取数字身份',
+                success() {
+                  J.push({ name: 'digitalIdCard' });
+                },
+              });
+        }
+        E(async (e) => {
+          const { id: l, pId: r, type: a } = e || {};
+          if (((L.value = Number(l)), (T.value = Number(r)), 'product' === a)) {
+            q.value = 'product';
+            const e = await p.appSpu.getSpuDetail({ params: { id: T.value } });
+            (null == e ? void 0 : e.data) && (U.value = e.data);
+          } else {
+            q.value = 'order';
+            const e = await p.app.getOrderDetail({
+              params: { orderId: L.value },
+            });
+            (null == e ? void 0 : e.data) && (G.value = e.data);
+          }
+          G.value ||
+            U.value ||
+            ((G.value = void 0),
+            (U.value = void 0),
+            c({ icon: 'error', title: '没有获取到数根详情' }));
+        });
+        const B = u(() => {
+            var e, l, r, a, s, u, t;
+            return q.value
+              ? 'product' === q.value
+                ? {
+                    productSpuNo: null == (e = U.value) ? void 0 : e.productNo,
+                    productSpuCategoryName:
+                      null == (l = U.value) ? void 0 : l.categoryName,
+                    productSpuName: null == (r = U.value) ? void 0 : r.name,
+                    productSpuPicUrl: null == (a = U.value) ? void 0 : a.picUrl,
+                    productSpuIssuedQuantity:
+                      null == (s = U.value) ? void 0 : s.issuedQuantity,
+                    issuerName: null == (u = U.value) ? void 0 : u.issuerName,
+                    productSpuDescription:
+                      null == (t = U.value) ? void 0 : t.description,
+                    createTime: void 0,
+                    chainStatus: void 0,
+                    voucherIssue: [],
+                  }
+                : G.value
+              : null;
+          }),
+          I = u(() => {
+            var e;
+            return (
+              window &&
+              window.self === window.top &&
+              (0 === X.value ||
+                (1 === X.value &&
+                  1 === (null == (e = B.value) ? void 0 : e.chainStatus)))
+            );
+          });
+        return (e, l) => {
+          const r = h,
+            a = x,
+            s = Y,
+            u = V,
+            p = j,
+            c = f,
+            y = Z,
+            E = w,
+            X = F,
+            L = N,
+            T = i('layout-default-uni');
+          return (
+            n(),
+            t(T, null, {
+              default: o(() => [
+                d(
+                  L,
+                  {
+                    'custom-class': 'h-screen bg-#f5f5f5 pb-32rpx',
+                    'banner-height': '434rpx',
+                    fixed: !1,
+                  },
+                  {
+                    'banner-front': o(() => {
+                      var e;
+                      return [
+                        d(
+                          r,
+                          {
+                            'custom-class':
+                              '!absolute rounded-b-96rpx overflow-hidden',
+                            width: '811rpx',
+                            height: '434rpx',
+                            src: m(
+                              '/assets/pythroot-detail-banner-188-PmNB.png'
+                            ),
+                            mode: 'aspectFill',
+                          },
+                          null,
+                          8,
+                          ['src']
+                        ),
+                        d(
+                          a,
+                          { class: 'w-635rpx flex justify-between' },
+                          {
+                            default: o(() => [
+                              d(
+                                r,
+                                {
+                                  src: m(H),
+                                  width: '416rpx',
+                                  height: '131rpx',
+                                },
+                                null,
+                                8,
+                                ['src']
+                              ),
+                              d(
+                                r,
+                                {
+                                  src: m(H),
+                                  width: '416rpx',
+                                  height: '131rpx',
+                                },
+                                null,
+                                8,
+                                ['src']
+                              ),
+                            ]),
+                            _: 1,
+                          }
+                        ),
+                        d(
+                          s,
+                          {
+                            'custom-class': '!absolute bg-#fff',
+                            src:
+                              (null == (e = m(B))
+                                ? void 0
+                                : e.productSpuPicUrl) || '',
+                            size: '360rpx',
+                            border: '',
+                            'border-size': '6rpx',
+                          },
+                          null,
+                          8,
+                          ['src']
+                        ),
+                      ];
+                    }),
+                    default: o(() => [
+                      d(
+                        a,
+                        {
+                          class:
+                            'pythroot-detail-content px-36rpx mt-[-108rpx]',
+                        },
+                        {
+                          default: o(() => {
+                            var e;
+                            return [
+                              d(
+                                a,
+                                {
+                                  class:
+                                    'rounded-20rpx bg-#fff shadow-[0rpx_4rpx_8rpx_0rpx_rgba(203,203,203,0.25)]',
+                                },
+                                {
+                                  default: o(() => [
+                                    d(a, { class: 'h-108rpx' }),
+                                    d(
+                                      a,
+                                      {
+                                        class:
+                                          'pt-18rpx pb-28rpx px-40rpx flex w-full flex-col',
+                                      },
+                                      {
+                                        default: o(() => {
+                                          var e;
+                                          return [
+                                            d(
+                                              u,
+                                              {
+                                                'custom-class': '!font-600',
+                                                color: '#37445D',
+                                                'line-height': 'normal',
+                                                size: '34rpx',
+                                                text:
+                                                  null == (e = m(B))
+                                                    ? void 0
+                                                    : e.productSpuName,
+                                              },
+                                              null,
+                                              8,
+                                              ['text']
+                                            ),
+                                            d(a, {
+                                              class:
+                                                'my-18rpx bg-#E2E2E2 h-2rpx w-full scale-y-50',
+                                            }),
+                                            d(
+                                              a,
+                                              {
+                                                class:
+                                                  'gap-16rpx flex flex-col',
+                                              },
+                                              {
+                                                default: o(() => {
+                                                  var e, l, r, a, s;
+                                                  return [
+                                                    d(
+                                                      p,
+                                                      {
+                                                        label: '数根编号：',
+                                                        value:
+                                                          null == (e = m(B))
+                                                            ? void 0
+                                                            : e.productSpuNo,
+                                                      },
+                                                      null,
+                                                      8,
+                                                      ['value']
+                                                    ),
+                                                    d(
+                                                      p,
+                                                      {
+                                                        label: '分类：',
+                                                        value:
+                                                          null == (l = m(B))
+                                                            ? void 0
+                                                            : l.productSpuCategoryName,
+                                                      },
+                                                      null,
+                                                      8,
+                                                      ['value']
+                                                    ),
+                                                    d(
+                                                      p,
+                                                      {
+                                                        label: '已发放：',
+                                                        value: W(
+                                                          null == (r = m(B))
+                                                            ? void 0
+                                                            : r.productSpuIssuedQuantity
+                                                        ),
+                                                      },
+                                                      null,
+                                                      8,
+                                                      ['value']
+                                                    ),
+                                                    d(
+                                                      p,
+                                                      {
+                                                        label: '发放方：',
+                                                        value:
+                                                          null == (a = m(B))
+                                                            ? void 0
+                                                            : a.issuerName,
+                                                      },
+                                                      null,
+                                                      8,
+                                                      ['value']
+                                                    ),
+                                                    'order' === m(q)
+                                                      ? (n(),
+                                                        t(
+                                                          p,
+                                                          {
+                                                            key: 0,
+                                                            label: '发放时间：',
+                                                            value: m(P)(
+                                                              null == (s = m(B))
+                                                                ? void 0
+                                                                : s.createTime,
+                                                              'YYYY年MM月DD日 HH时mm分'
+                                                            ),
+                                                          },
+                                                          null,
+                                                          8,
+                                                          ['value']
+                                                        ))
+                                                      : v('', !0),
+                                                  ];
+                                                }),
+                                                _: 1,
+                                              }
+                                            ),
+                                            m(I)
+                                              ? (n(),
+                                                t(
+                                                  c,
+                                                  {
+                                                    key: 0,
+                                                    class: 'mt-20rpx',
+                                                    block: '',
+                                                    plain: '',
+                                                    onClick: z,
+                                                  },
+                                                  {
+                                                    default: o(() => [
+                                                      d(
+                                                        r,
+                                                        {
+                                                          class: 'mr-10rpx',
+                                                          width: '24rpx',
+                                                          height: '24rpx',
+                                                          src: m(C),
+                                                        },
+                                                        null,
+                                                        8,
+                                                        ['src']
+                                                      ),
+                                                      b('链上信息 '),
+                                                    ]),
+                                                    _: 1,
+                                                  }
+                                                ))
+                                              : v('', !0),
+                                          ];
+                                        }),
+                                        _: 1,
+                                      }
+                                    ),
+                                  ]),
+                                  _: 1,
+                                }
+                              ),
+                              'order' === m(q)
+                                ? (n(),
+                                  t(
+                                    a,
+                                    { key: 0, class: 'mt-38rpx' },
+                                    {
+                                      default: o(() => {
+                                        var e, l;
+                                        return [
+                                          d(
+                                            a,
+                                            {
+                                              class:
+                                                'gap-8rpx mb-38rpx flex items-center',
+                                            },
+                                            {
+                                              default: o(() => [
+                                                d(
+                                                  y,
+                                                  {
+                                                    src: m(k),
+                                                    width: '36rpx',
+                                                    height: '36rpx',
+                                                  },
+                                                  null,
+                                                  8,
+                                                  ['src']
+                                                ),
+                                                d(u, {
+                                                  text: '关联权益',
+                                                  color: '#37445D',
+                                                  size: '27rpx',
+                                                }),
+                                              ]),
+                                              _: 1,
+                                            }
+                                          ),
+                                          (
+                                            (null == (e = m(B))
+                                              ? void 0
+                                              : e.voucherIssue) || []
+                                          ).length <= 0
+                                            ? (n(),
+                                              t(
+                                                a,
+                                                {
+                                                  key: 0,
+                                                  class:
+                                                    'mb-38rpx flex justify-center',
+                                                },
+                                                {
+                                                  default: o(() => [
+                                                    d(E, {
+                                                      text: '无关联权益',
+                                                    }),
+                                                  ]),
+                                                  _: 1,
+                                                }
+                                              ))
+                                            : (n(!0),
+                                              A(
+                                                g,
+                                                { key: 1 },
+                                                S(
+                                                  (null == (l = m(B))
+                                                    ? void 0
+                                                    : l.voucherIssue) || [],
+                                                  (e) => (
+                                                    n(),
+                                                    t(
+                                                      a,
+                                                      {
+                                                        key: e.id,
+                                                        class:
+                                                          'mb-8rpx flex flex-nowrap',
+                                                        onClick: (l) => {
+                                                          var r;
+                                                          (r = e.productId) &&
+                                                            J.push({
+                                                              name: 'profitDetail',
+                                                              params: {
+                                                                pId: String(r),
+                                                                type: 'product',
+                                                              },
+                                                            });
+                                                        },
+                                                      },
+                                                      {
+                                                        default: o(() => [
+                                                          d(
+                                                            a,
+                                                            {
+                                                              class:
+                                                                'h-174rpx pt-20rpx pb-30rpx pl-40rpx pr-60rpx flex flex-grow',
+                                                              style: K({
+                                                                backgroundImage: `url(${m(
+                                                                  D
+                                                                )})`,
+                                                                backgroundSize:
+                                                                  '100% 100%',
+                                                              }),
+                                                            },
+                                                            {
+                                                              default: o(() => [
+                                                                e.picUrl
+                                                                  ? (n(),
+                                                                    t(
+                                                                      s,
+                                                                      {
+                                                                        key: 0,
+                                                                        'custom-class':
+                                                                          'bg-#ffcaa5 flex-shrink-0',
+                                                                        'border-color':
+                                                                          '#FF8B38',
+                                                                        'border-size':
+                                                                          '2rpx',
+                                                                        border:
+                                                                          '',
+                                                                        size: '124rpx',
+                                                                        src: e.picUrl,
+                                                                      },
+                                                                      null,
+                                                                      8,
+                                                                      ['src']
+                                                                    ))
+                                                                  : v('', !0),
+                                                                d(a, {
+                                                                  class:
+                                                                    'border-2rpx border-#E3E3E3 mx-32rpx scale-x-1/2 h-full w-0 flex-shrink-0 border-dashed',
+                                                                }),
+                                                                d(
+                                                                  a,
+                                                                  {
+                                                                    class:
+                                                                      'gap-4rpx flex h-full flex-grow flex-col',
+                                                                  },
+                                                                  {
+                                                                    default: o(
+                                                                      () => [
+                                                                        d(
+                                                                          u,
+                                                                          {
+                                                                            'custom-class':
+                                                                              'mb-4rpx',
+                                                                            text: e.name,
+                                                                            color:
+                                                                              '#5D4037',
+                                                                            size: '27rpx',
+                                                                          },
+                                                                          null,
+                                                                          8,
+                                                                          [
+                                                                            'text',
+                                                                          ]
+                                                                        ),
+                                                                        d(
+                                                                          p,
+                                                                          {
+                                                                            'label-class':
+                                                                              '!font-normal',
+                                                                            label:
+                                                                              '发行方：',
+                                                                            'label-size':
+                                                                              '24rpx',
+                                                                            'label-color':
+                                                                              '#5D4037',
+                                                                            'value-class':
+                                                                              '!font-200',
+                                                                            value:
+                                                                              e.issuerName,
+                                                                            'value-lines': 1,
+                                                                          },
+                                                                          null,
+                                                                          8,
+                                                                          [
+                                                                            'value',
+                                                                          ]
+                                                                        ),
+                                                                        d(
+                                                                          p,
+                                                                          {
+                                                                            'label-class':
+                                                                              '!font-normal',
+                                                                            label:
+                                                                              '发行量：',
+                                                                            'label-size':
+                                                                              '24rpx',
+                                                                            'label-color':
+                                                                              '#5D4037',
+                                                                            'value-class':
+                                                                              '!font-200',
+                                                                            value:
+                                                                              String(
+                                                                                e.issuedQuantity
+                                                                              ),
+                                                                            'value-lines': 1,
+                                                                          },
+                                                                          null,
+                                                                          8,
+                                                                          [
+                                                                            'value',
+                                                                          ]
+                                                                        ),
+                                                                      ]
+                                                                    ),
+                                                                    _: 2,
+                                                                  },
+                                                                  1024
+                                                                ),
+                                                              ]),
+                                                              _: 2,
+                                                            },
+                                                            1032,
+                                                            ['style']
+                                                          ),
+                                                        ]),
+                                                        _: 2,
+                                                      },
+                                                      1032,
+                                                      ['onClick']
+                                                    )
+                                                  )
+                                                ),
+                                                128
+                                              )),
+                                        ];
+                                      }),
+                                      _: 1,
+                                    }
+                                  ))
+                                : v('', !0),
+                              d(
+                                X,
+                                {
+                                  'custom-class': 'mx-8rpx mt-32rpx',
+                                  title: '详细介绍',
+                                  'dompurify-html':
+                                    (null == (e = m(B))
+                                      ? void 0
+                                      : e.productSpuDescription) ||
+                                    '<p>暂无详细介绍</p>',
+                                },
+                                null,
+                                8,
+                                ['dompurify-html']
+                              ),
+                            ];
+                          }),
+                          _: 1,
+                        }
+                      ),
+                    ]),
+                    _: 1,
+                  }
+                ),
+              ]),
+              _: 1,
+            })
+          );
+        };
+      },
+    }),
+    [['__scopeId', 'data-v-7010d501']]
+  );
+export { J as default };
