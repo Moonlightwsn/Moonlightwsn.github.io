@@ -1,1 +1,0 @@
-import{a1 as t,aR as e}from"./index-BoOjZWLk.js";const a=t("routeState",{state:()=>({stateMap:{}}),actions:{set(t,e){this.stateMap[t]=e},get(t){if(this.stateMap[t]){return this.stateMap[t]}}}});function s(){const t=a();return{depositRouteState:function(a,s){const n=s||e();return t.set(n,a),n},withdrawRouteState:function(e){return t.get(e)}}}export{s as u};
