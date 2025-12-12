@@ -1,0 +1,17 @@
+{
+  "id": "a7d1802d-73bb-46c7-ae2c-bda8a4f24750",
+  "timestamp": 1763452979078,
+  "matcher": {
+    "static": {
+      "/nuxtContent/index/sql_dump.txt": { "prerender": true },
+      "/nuxtContent/projects/sql_dump.txt": { "prerender": true },
+      "/nuxtContent/blog/sql_dump.txt": { "prerender": true },
+      "/nuxtContent/pages/sql_dump.txt": { "prerender": true },
+      "/nuxtContent/speaking/sql_dump.txt": { "prerender": true },
+      "/nuxtContent/about/sql_dump.txt": { "prerender": true }
+    },
+    "wildcard": {},
+    "dynamic": {}
+  },
+  "prerendered": []
+}
