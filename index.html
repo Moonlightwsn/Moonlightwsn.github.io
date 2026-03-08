@@ -1,24 +1,107 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/assets/uni.e09a1c48.css">
+    <script type="module" crossorigin src="./assets/polyfills-2fdacd1c.js"></script>
 
     <meta charset="UTF-8" />
-    <link rel="icon" href="static/logo.svg">
+    <link
+      rel="shortcut icon"
+      type="images/png"
+      href="data:image/png;base64,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"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Auth Web</title>
+    <style>
+      #pre-loading {
+        width: 100%;
+        height: 100vh;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+      }
+      #pre-loading i {
+        display: inline-block;
+        color: #1890ff;
+        font-size: 2rem;
+        width: 1em;
+        height: 1em;
+
+        font-style: normal;
+        line-height: 0;
+        text-align: center;
+        text-transform: none;
+        vertical-align: -0.125em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      #pre-loading i svg {
+        display: inline-block;
+        overflow: hidden;
+        -webkit-animation: loadingCircle 1s infinite linear;
+                animation: loadingCircle 1s infinite linear;
+      }
+
+      @-webkit-keyframes loadingCircle {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes loadingCircle {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <script>
-      const coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)')
-  || CSS.supports('top: constant(a)'))
-      document.write(
-        `<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0${
-  coverSupport ? ', viewport-fit=cover' : ''}" />`)
+      // 预先检查浏览器环境
+      var ua = navigator.userAgent.toLowerCase()
+      // 是否iOS系统
+      window.isiOS =
+        ua.indexOf("iPhone") != -1 ||
+        ua.indexOf("iPod") != -1 ||
+        ua.indexOf("iPad") != -1
+      // 是否在微信内浏览器打开
+      window.inWechat = ua.match(/MicroMessenger/i) == "micromessenger"
     </script>
-    <title></title>
-    <!--preload-links-->
-    <!--app-context-->
-    <script type="module" crossorigin src="/assets/index-BOg1_qj1.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DxY9po2u.css">
+    <script type="module" crossorigin src="./assets/index-2b46a84a.js"></script>
+    <link rel="stylesheet" href="./assets/index-c903eb90.css">
+    <script type="module">import.meta.url;import("_").catch(()=>1);async function* g(){};if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
   </head>
   <body>
-    <div id="app"><!--app-html--></div>
+    <div id="pre-loading">
+      <i>
+        <svg
+          viewBox="0 0 1024 1024"
+          class="anticon-spin"
+          width="1em"
+          height="1em"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M512 1024c-69.1 0-136.2-13.5-199.3-40.2C251.7 958 197 921 150 874c-47-47-84-101.7-109.8-162.7C13.5 648.2 0 581.1 0 512c0-19.9 16.1-36 36-36s36 16.1 36 36c0 59.4 11.6 117 34.6 171.3 22.2 52.4 53.9 99.5 94.3 139.9 40.4 40.4 87.5 72.2 139.9 94.3C395 940.4 452.6 952 512 952c59.4 0 117-11.6 171.3-34.6 52.4-22.2 99.5-53.9 139.9-94.3 40.4-40.4 72.2-87.5 94.3-139.9C940.4 629 952 571.4 952 512c0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.2C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3s-13.5 136.2-40.2 199.3C958 772.3 921 827 874 874c-47 47-101.8 83.9-162.7 109.7-63.1 26.8-130.2 40.3-199.3 40.3z"
+          ></path>
+        </svg>
+      </i>
+    </div>
+    <div id="root" class="px2rem-ignore-root"></div>
+    
+    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-2570cf7c.js"></script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="./assets/index-legacy-818dbce2.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
   </body>
 </html>
