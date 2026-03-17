@@ -1,0 +1,1 @@
+import{ap as n,B as e,u as r,q as a,M as t}from"./index-Gd_d78Vo.js";function i(i){const s=n(i,null);if(s){const n=t(),{add:a,remove:i,internalChildren:d}=s;a(n),e(()=>i(n));return{parent:s,index:r(()=>d.indexOf(n))}}return{parent:null,index:a(-1)}}export{i as u};
